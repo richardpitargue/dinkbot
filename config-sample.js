@@ -1,3 +1,4 @@
 export default {
-    TOKEN: 'your_token_here'
+    TOKEN: 'your_token_here',
+    PREFIX: '!'
 }
