@@ -29,7 +29,10 @@ export default function(word, message) {
         message.channel.send({embed});
     })
     .catch((error) => {
-        console.log(error);
+        if(error.statusCode === 404) {
+            message.channel.send('I could not find definitions for the word: ' + word + '. Please try again.');
+            return;
+        }
         message.channel.send('There was an error processing your request. Try again.')
     });
 }
