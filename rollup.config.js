@@ -5,3 +5,4 @@ export default {
         format: 'cjs'
     },
 }
+// Mage is the best
