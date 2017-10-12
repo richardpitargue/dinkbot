@@ -21,6 +21,7 @@
     "request-promise": "^4.2.2"
   },
   "devDependencies": {
-    "rollup": "^0.50.0"
+    "rollup": "^0.50.0",
+    "rollup-plugin-eslint": "^4.0.0"
   }
 }

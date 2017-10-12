@@ -1,6 +1,6 @@
 import Discord from 'discord.js';
 import config from '../config';
-import handler from './commands/handler'
+import handler from './commands/handler';
 
 const client = new Discord.Client();
 
