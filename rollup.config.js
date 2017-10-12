@@ -10,3 +10,4 @@ export default {
         eslint()
     ]
 }
+// Mage is the best
