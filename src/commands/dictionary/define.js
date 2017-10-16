@@ -1,9 +1,11 @@
 import dictionary from '../../lib/dictionary';
 import { RichEmbed } from 'discord.js';
 
-export default function(word, message) {
-    const embed = new RichEmbed();
-    dictionary.define(word, (result) => {
+export default async function(word, message) {
+    try {
+        const embed = new RichEmbed();
+        const result = await dictionary.define(word);
+
         if(result.type === 'error') {
             embed.setDescription('Could not find a definition for the word ' + word + '. Check your spelling?');
             embed.setColor(0xFF4136);
@@ -19,5 +21,9 @@ export default function(word, message) {
             embed.addField(res.entries[i].lexicalCategory, '- ' + res.entries[i].definitions.join('\n- '));
         }
         message.channel.send({embed});
-    });
+    } catch(e) {
+        if(e.statusCode === 404) {
+            message.channel.send("Bitch ass ho that word doesn't exist fuck off.");
+        }
+    }
 }
