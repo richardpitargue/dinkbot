@@ -8,20 +8,17 @@ async function define(word) {
     const lexicalEntries = dictionaryEntry.lexicalEntries;
 
     let returnObject = {
-        'type': 'success',
-        'result': {
-            'word': dictionaryEntry.word,
-            'entries': []
-        }
+        'word': dictionaryEntry.word,
+        'entries': []
     };
 
     for(let i = 0; i < lexicalEntries.length; i++) {
-        returnObject.result.entries.push({
+        returnObject.entries.push({
             'lexicalCategory': lexicalEntries[i].lexicalCategory,
             'definitions': []
         });
         for(let j = 0; j < Math.min(lexicalEntries[i].entries[0].senses.length, 3); j++) {
-            returnObject.result.entries[i].definitions.push(lexicalEntries[i].entries[0].senses[j].definitions[0]);
+            returnObject.entries[i].definitions.push(lexicalEntries[i].entries[0].senses[j].definitions[0]);
         }
     }
 
@@ -34,16 +31,13 @@ async function synonyms(word) {
     const lexicalEntries = dictionaryEntry.lexicalEntries;
 
     let returnObject = {
-        'type': 'success',
-        'result': {
-            'word': dictionaryEntry.word,
-            'entries': []
-        }
+        'word': dictionaryEntry.word,
+        'entries': []
     };
 
     for(let i = 0; i < lexicalEntries.length; i++) {
         for(let j = 0; j < lexicalEntries[i].entries[0].senses[0].synonyms.length; j++) {
-            returnObject.result.entries.push(lexicalEntries[i].entries[0].senses[0].synonyms[j].text);
+            returnObject.entries.push(lexicalEntries[i].entries[0].senses[0].synonyms[j].text);
         }
     }
 
@@ -56,16 +50,13 @@ async function antonyms(word) {
     const lexicalEntries = dictionaryEntry.lexicalEntries;
 
     let returnObject = {
-        'type': 'success',
-        'result': {
-            'word': dictionaryEntry.word,
-            'entries': []
-        }
+        'word': dictionaryEntry.word,
+        'entries': []
     };
 
     for(let i = 0; i < lexicalEntries.length; i++) {
         for(let j = 0; j < lexicalEntries[i].entries[0].senses[0].antonyms.length; j++) {
-            returnObject.result.entries.push(lexicalEntries[i].entries[0].senses[0].antonyms[j].text);
+            returnObject.entries.push(lexicalEntries[i].entries[0].senses[0].antonyms[j].text);
         }
     }
 

@@ -6,18 +6,9 @@ export default async function(word, message) {
         const embed = new RichEmbed();
         const result = await dictionary.antonyms(word);
 
-        if(result.type === 'error') {
-            embed.setDescription('Could not find antonyms for the word ' + word + '. Check your spelling?');
-            embed.setColor(0xFF4136);
-            message.channel.send({embed});
-            return;
-        }
-
-        const res = result.result;
-
-        embed.setTitle('Antonyms for the word **' + res.word + '**');
+        embed.setTitle('Antonyms for the word **' + result.word + '**');
         embed.setColor(0x0074D9);
-        embed.setDescription(res.entries.join(', '));
+        embed.setDescription(result.entries.join(', '));
         message.channel.send({embed});
     } catch(e) {
         if(e.statusCode === 404) {
