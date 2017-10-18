@@ -7,7 +7,9 @@ export default {
         format: 'cjs'
     },
     plugins: [
-        eslint()
+        eslint({
+            fix: true
+        })
     ]
 }
 // Mage is the best
