@@ -11,7 +11,7 @@ export default async function(word, message) {
         embed.setColor(0x2ECC40);
         embed.setFooter('Requested by: ' + message.author.username, message.author.avatarURL);
         embed.setDescription(result.definition);
-        embed.addField('Example', result.example);
+        embed.addField('Example', result.example || '_no example_');
         embed.addField('Permalink', result.permalink);
         embed.addField('Upvotes', result.thumbsUp, true);
         embed.addField('Downvotes', result.thumbsDown, true);
