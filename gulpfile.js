@@ -26,8 +26,12 @@ gulp.task('start', ['build'], () => {
     if(node) node.kill();
     node = spawn('node', ['build/bundle.js'], {stdio: 'inherit'})
     node.on('close', function (code) {
-        if (code === 8) {
-            gulp.log('Error detected, waiting for changes...');
+        if (code !== 0) {
+            const errMessage = '\n' +
+                '--------------------------------------' + '\n' +
+                'Error detected, waiting for changes...' + '\n' +
+                '--------------------------------------' + '\n';
+            console.log(errMessage);
         }
     });
 });
