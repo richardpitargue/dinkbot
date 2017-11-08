@@ -1,0 +1,14 @@
+{
+  "name": "dinkbot",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/richardpitargue/dinkbot",
+  "author": "richardpitargue <jlpitargue@up.edu.ph>",
+  "license": "MIT",
+  "dependencies": {
+    "discord.js": "^11.2.1"
+  },
+  "devDependencies": {
+    "gulp": "^3.9.1"
+  }
+}
